@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelNestDev – Modern Web Development</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="PixelNestDev-Logo.png" alt="PixelNestDev" class="logo-img">
+        <span class="logo-text">PixelNestDev</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="services.html">Services <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="services.html#starter">Pixel-Starter</a></li>
+          <li><a href="services.html#standard">Pixel-Standard</a></li>
+          <li><a href="services.html#premium">Pixel-Premium</a></li>
+          <li><a href="services.html#apex">Pixel-Apex</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="resources.html">Resources <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="resources.html#insights">Insight Articles</a></li>
+          <li><a href="resources.html#blogs">Blogs</a></li>
+          <li><a href="resources.html#case-studies">Case Studies</a></li>
+          <li><a href="resources.html#tutorials">Tutorials</a></li>
+          <li><a href="resources.html#tools">Tools</a></li>
+        </ul>
+      </li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- CTA button inside the menu -->
+      <li class="nav-cta-item"><a href="https://forms.google.com/your-form" class="nav-cta" target="_blank">Book a Consultation</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH 3D BACKGROUND -->
+  <section class="hero">
+    <canvas id="three-canvas"></canvas>   
+    <div class="hero-content animate">
+      <h1>PixelNestDev</h1>
+      <div class="typed-container">
+        <span id="typed"></span>
+      </div>
+      <p style="font-size:1.2rem; color:#ccc; margin-top:20px;">We build websites that don’t just look good—they perform.</p>
+      <div class="hero-buttons">
+        <a href="plans.html" class="btn-primary">View Plans</a>
+        <a href="#work" class="btn-secondary">See Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="about">
+    <div class="container">
+      <h2 class="section-title animate">What We Do</h2>
+      <div class="services-grid">
+        <div class="service-card glass-card animate reveal reveal-delay-1">
+          <i class='bx bx-code-alt'></i>
+          <h3>Web Development</h3>
+          <p>Custom, responsive websites built with modern technologies.</p>
+        </div>
+        <div class="service-card glass-card animate reveal reveal-delay-2">
+          <i class='bx bx-search-alt'></i>
+          <h3>SEO Optimization</h3>
+          <p>Get found on Google and drive organic traffic.</p>
+        </div>
+        <div class="service-card glass-card animate reveal reveal-delay-3">
+          <i class='bx bx-mobile-alt'></i>
+          <h3>Mobile-Ready</h3>
+          <p>Flawless experience on all devices, from phones to desktops.</p>
+        </div>
+        <div class="service-card glass-card animate reveal reveal-delay-4">
+          <i class='bx bx-support'></i>
+          <h3>Maintenance</h3>
+          <p>Ongoing support to keep your site secure and up‑to‑date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="work">
+    <div class="container">
+      <h2 class="section-title animate reveal">Recent Projects</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item glass-card animate reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 1" loading="lazy">
+          <div class="project-info">
+            <h3>Fintech Dashboard</h3>
+            <p>Interactive analytics platform</p>
+          </div>
+        </div>
+        <div class="portfolio-item glass-card animate reveal reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 2" loading="lazy">
+          <div class="project-info">
+            <h3>Eco Brand Store</h3>
+            <p>Sustainable e‑commerce</p>
+          </div>
+        </div>
+        <div class="portfolio-item glass-card animate reveal reveal-delay-3">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 3" loading="lazy">
+          <div class="project-info">
+            <h3>Creative Agency</h3>
+            <p>Portfolio with CMS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-title animate reveal">Our Process</h2>
+      <div class="process-steps">
+        <div class="step animate reveal reveal-delay-1">
+          <div class="step-icon"><i class='bx bx-chat'></i></div>
+          <h3>Pixel Chat</h3>
+          <p>We understand your goals and vision.</p>
+        </div>
+        <div class="step animate reveal reveal-delay-2">
+          <div class="step-icon"><i class='bx bx-code-alt'></i></div>
+          <h3>Design & Build</h3>
+          <p>We bring your ideas to life.</p>
+        </div>
+        <div class="step animate reveal reveal-delay-3">
+          <div class="step-icon"><i class='bx bx-edit-alt'></i></div>
+          <h3>Review & Refine</h3>
+          <p>Your feedback, our revisions.</p>
+        </div>
+        <div class="step animate reveal reveal-delay-4">
+          <div class="step-icon"><i class='bx bx-rocket'></i></div>
+          <h3>Launch & Support</h3>
+          <p>Go live and ongoing care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title animate reveal">Client Love</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card glass-card animate reveal reveal-delay-1">
+          <p class="quote">“PixelNestDev redesigned our entire online presence. The new site is fast, beautiful, and our conversions have doubled!”</p>
+          <div class="author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Founder, Bloom Cosmetics</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card animate reveal reveal-delay-2">
+          <p class="quote">“Working with them was a breeze. They understood our vision and delivered beyond expectations. Highly recommended.”</p>
+          <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael">
+            <div class="author-info">
+              <h4>Michael Chen</h4>
+              <p>CTO, FinEdge</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER LOGOS (FIXED URLS) -->
+  <section class="partners">
+    <div class="container">
+      <h2 class="section-title animate reveal">Trusted By</h2>
+      <div class="partner-grid">
+        <img src="https://via.placeholder.com/120x60/2dd4bf/0a0f1a?text=Partner1" alt="Partner">
+        <img src="https://via.placeholder.com/120x60/2dd4bf/0a0f1a?text=Partner2" alt="Partner">
+        <img src="https://via.placeholder.com/120x60/2dd4bf/0a0f1a?text=Partner3" alt="Partner">
+        <img src="https://via.placeholder.com/120x60/2dd4bf/0a0f1a?text=Partner4" alt="Partner">
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container newsletter-box glass-card animate reveal">
+      <h2>Stay in the Loop</h2>
+      <p>Get the latest insights on web design and development – no spam, only valuable content.</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p id="newsletter-msg" style="margin-top:15px; font-size:0.9rem;"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="PixelNestDev-Logo.png" alt="PixelNestDev" style="height: 40px;">
+          <p style="margin-top: 15px; color: #aaa;">Crafting digital experiences that drive results.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#starter">Pixel-Starter</a></li>
+            <li><a href="services.html#standard">Pixel-Standard</a></li>
+            <li><a href="services.html#premium">Pixel-Premium</a></li>
+            <li><a href="services.html#apex">Pixel-Apex</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 PixelNestDev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    (function() {
+      // ---------- THREE.JS ROTATING ICOSAHEDRON (with error handling) ----------
+      // ---------- THREE.JS BACKGROUND (Thicker Lines + Antialiasing) ----------
+      function initThree() {
+        const canvas = document.getElementById('three-canvas');
+        if (!canvas) {
+          console.error('Canvas element #three-canvas not found – 3D background disabled.');
+          return;
+        }
+
+        try {
+          // Enable antialiasing for smoother lines
+          const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+          // Large, simple geometry (detail=0 for minimal lines)
+          const geometry = new THREE.IcosahedronGeometry(10, 0); // radius 10, no subdivisions
+
+          // Main wireframe with emissive glow
+          const material = new THREE.MeshStandardMaterial({
+            color: 0x2dd4bf,
+            wireframe: true,
+            emissive: 0x115555,
+            emissiveIntensity: 0.9
+          });
+          const mesh = new THREE.Mesh(geometry, material);
+          scene.add(mesh);
+
+          // ----- Second wireframe for thickness (slightly larger, semi‑transparent) -----
+          const thickMaterial = new THREE.MeshStandardMaterial({
+            color: 0x2dd4bf,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3,
+            emissive: 0x115555,
+            emissiveIntensity: 0.5
+          });
+          const thickMesh = new THREE.Mesh(geometry, thickMaterial);
+          thickMesh.scale.set(1.02, 1.02, 1.02); // Slightly larger to create outline/thickness
+          scene.add(thickMesh);
+
+          // Subtle ambient light
+          const ambientLight = new THREE.AmbientLight(0x404060);
+          scene.add(ambientLight);
+
+          // Faint particles for depth
+          const particlesGeo = new THREE.BufferGeometry();
+          const particlesCount = 300;
+          const posArray = new Float32Array(particlesCount * 3);
+          for(let i = 0; i < particlesCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 40;
+            posArray[i+1] = (Math.random() - 0.5) * 40;
+            posArray[i+2] = (Math.random() - 0.5) * 40;
+          }
+          particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+          const particlesMat = new THREE.PointsMaterial({ 
+            color: 0x4ff0e0, 
+            size: 0.13, 
+            transparent: true, 
+            opacity: 0.2 
+          });
+          const particles = new THREE.Points(particlesGeo, particlesMat);
+          scene.add(particles);
+
+          camera.position.z = 16; // Fits the larger shape
+
+          // Constant slow rotation
+          const rotationSpeed = 0.0005;
+
+          function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotate main mesh
+            mesh.rotation.y += rotationSpeed;
+            mesh.rotation.x += rotationSpeed * 0.2; // slight tilt variation
+
+            // Make thick mesh follow the same rotation
+            thickMesh.rotation.copy(mesh.rotation);
+
+            // Very slow particle rotation (optional)
+            particles.rotation.y += 0.0001;
+
+            renderer.render(scene, camera);
+          }
+          animate();
+
+          window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          });
+        } catch (e) {
+          console.error('Three.js initialization failed:', e);
+        }
+      }
+
+      // Run Three.js after DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initThree);
+      } else {
+        initThree();
+      }
+
+      // ---------- TYPED.JS ----------
+      new Typed('#typed', {
+        strings: ['Modern.', 'Responsive.', 'Fast.', 'Secure.', 'SEO‑ready.'],
+        typeSpeed: 110,
+        backSpeed: 95,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+        fadeOut: true,
+        fadeOutClass: 'typed-fade-out',
+        backDelay: 4500
+      });
+
+      // ---------- HAMBURGER MENU ----------
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // ---------- SCROLL ANIMATIONS ----------
+      const animateElements = document.querySelectorAll('.animate');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.2 });
+      animateElements.forEach(el => observer.observe(el));
+
+      // ---------- NEWSLETTER SIMULATION ----------
+      document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const msg = document.getElementById('newsletter-msg');
+        msg.textContent = '🎉 Thanks for subscribing!';
+        msg.style.color = '#2dd4bf';
+        e.target.reset();
+      });
+
+      // ---------- SMOOTH SCROLL ----------
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

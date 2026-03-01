@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources – PixelNestDev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="PixelNestDev-Logo.png" alt="PixelNestDev" class="logo-img">
+        <span class="logo-text">PixelNestDev</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="services.html">Services <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="services.html#starter">Pixel-Starter</a></li>
+          <li><a href="services.html#standard">Pixel-Standard</a></li>
+          <li><a href="services.html#premium">Pixel-Premium</a></li>
+          <li><a href="services.html#apex">Pixel-Apex</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="resources.html">Resources <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="resources.html#insights">Insight Articles</a></li>
+          <li><a href="resources.html#blogs">Blogs</a></li>
+          <li><a href="resources.html#case-studies">Case Studies</a></li>
+          <li><a href="resources.html#tutorials">Tutorials</a></li>
+          <li><a href="resources.html#tools">Tools</a></li>
+        </ul>
+      </li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- CTA button inside the menu -->
+      <li class="nav-cta-item"><a href="https://forms.google.com/your-form" class="nav-cta" target="_blank">Book a Consultation</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 50vh;">
+    <canvas id="three-canvas"></canvas>
+    <div class="hero-content animate">
+      <h1>Resources</h1>
+      <p>Insights, tutorials, and tools to help you grow.</p>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section class="container" style="padding: 60px 0;">
+    <div class="resource-tabs">
+      <button class="tab-btn active" data-tab="insights">Insight Articles</button>
+      <button class="tab-btn" data-tab="blogs">Blogs</button>
+      <button class="tab-btn" data-tab="case-studies">Case Studies</button>
+      <button class="tab-btn" data-tab="tutorials">Tutorials</button>
+      <button class="tab-btn" data-tab="tools">Tools</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="insights" class="tab-content active">
+      <h3 style="color: #2dd4bf; margin-bottom: 30px;">Insight Articles</h3>
+      <div class="resource-card glass-card animate">
+        <h4>How to Choose the Right Tech Stack</h4>
+        <p>A guide to selecting technologies that scale with your business.</p>
+        <a href="#" class="btn-secondary" style="margin-top: 15px; display: inline-block;">Read More</a>
+      </div>
+      <div class="resource-card glass-card animate">
+        <h4>SEO Trends for 2025</h4>
+        <p>Stay ahead with the latest SEO strategies.</p>
+        <a href="#" class="btn-secondary" style="margin-top: 15px; display: inline-block;">Read More</a>
+      </div>
+    </div>
+
+    <div id="blogs" class="tab-content">
+      <h3 style="color: #2dd4bf; margin-bottom: 30px;">Blogs</h3>
+      <div class="resource-card glass-card animate">
+        <h4>Behind the Scenes: Building a Custom CMS</h4>
+        <p>Our approach to creating flexible content management systems.</p>
+        <a href="#" class="btn-secondary" style="margin-top: 15px; display: inline-block;">Read More</a>
+      </div>
+    </div>
+
+    <div id="case-studies" class="tab-content">
+      <h3 style="color: #2dd4bf; margin-bottom: 30px;">Case Studies</h3>
+      <div class="resource-card glass-card animate">
+        <h4>E‑commerce Migration for Bloom Cosmetics</h4>
+        <p>How we helped a beauty brand increase conversions by 150%.</p>
+        <a href="#" class="btn-secondary" style="margin-top: 15px; display: inline-block;">Read Case Study</a>
+      </div>
+    </div>
+
+    <div id="tutorials" class="tab-content">
+      <h3 style="color: #2dd4bf; margin-bottom: 30px;">Tutorials</h3>
+      <div class="resource-card glass-card animate">
+        <h4>Getting Started with Three.js</h4>
+        <p>Learn to create 3D backgrounds like the one on our site.</p>
+        <a href="#" class="btn-secondary" style="margin-top: 15px; display: inline-block;">Start Tutorial</a>
+      </div>
+    </div>
+
+    <div id="tools" class="tab-content">
+      <h3 style="color: #2dd4bf; margin-bottom: 30px;">Tools</h3>
+      <div class="resource-card glass-card animate">
+        <h4>Free Website Speed Test</h4>
+        <p>Analyze your site's performance and get actionable tips.</p>
+        <a href="#" class="btn-secondary" style="margin-top: 15px; display: inline-block;">Try Tool</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="PixelNestDev-Logo.png" alt="PixelNestDev" style="height: 40px;">
+          <p style="margin-top: 15px; color: #aaa;">Crafting digital experiences that drive results.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#starter">Pixel-Starter</a></li>
+            <li><a href="#standard">Pixel-Standard</a></li>
+            <li><a href="#premium">Pixel-Premium</a></li>
+            <li><a href="#apex">Pixel-Apex</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 PixelNestDev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Simplified particle background
+    function initParticles() {
+      const canvas = document.getElementById('three-canvas');
+      if (!canvas) return;
+      try {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const particlesGeo = new THREE.BufferGeometry();
+        const particlesCount = 600;
+        const posArray = new Float32Array(particlesCount * 3);
+        for(let i = 0; i < particlesCount * 3; i += 3) {
+          posArray[i] = (Math.random() - 0.5) * 50;
+          posArray[i+1] = (Math.random() - 0.5) * 50;
+          posArray[i+2] = (Math.random() - 0.5) * 50;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ color: 0x2dd4bf, size: 0.1, transparent: true, opacity: 0.3 });
+        const particles = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particles);
+
+        camera.position.z = 30;
+        function animate() {
+          requestAnimationFrame(animate);
+          particles.rotation.y += 0.0002;
+          particles.rotation.x += 0.0001;
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+      } catch (e) {}
+    }
+    initParticles();
+  </script>
+</body>
+</html>

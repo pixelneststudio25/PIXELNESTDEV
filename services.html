@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services – PixelNestDev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    .plan-card {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .plan-card i {
+      font-size: 3rem;
+      color: #2dd4bf;
+      margin-bottom: 20px;
+    }
+    .plan-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #2dd4bf;
+    }
+    .plan-card .feature-list {
+      text-align: left;
+      margin: 20px 0;
+      list-style: none;
+    }
+    .plan-card .feature-list li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .plan-card .feature-list i {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #2dd4bf;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 60px 0;
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .comparison-table th {
+      background: rgba(45,212,191,0.2);
+      color: #2dd4bf;
+      padding: 15px;
+      font-weight: 600;
+    }
+    .comparison-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .comparison-table td:first-child {
+      text-align: left;
+      font-weight: 500;
+    }
+    .comparison-table .feature-yes {
+      color: #2dd4bf;
+      font-size: 1.3rem;
+    }
+    .comparison-table .feature-no {
+      color: #666;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="PixelNestDev-Logo.png" alt="PixelNestDev" class="logo-img">
+        <span class="logo-text">PixelNestDev</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="services.html">Services <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="services.html#starter">Pixel-Starter</a></li>
+          <li><a href="services.html#standard">Pixel-Standard</a></li>
+          <li><a href="services.html#premium">Pixel-Premium</a></li>
+          <li><a href="services.html#apex">Pixel-Apex</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="resources.html">Resources <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="resources.html#insights">Insight Articles</a></li>
+          <li><a href="resources.html#blogs">Blogs</a></li>
+          <li><a href="resources.html#case-studies">Case Studies</a></li>
+          <li><a href="resources.html#tutorials">Tutorials</a></li>
+          <li><a href="resources.html#tools">Tools</a></li>
+        </ul>
+      </li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- CTA button inside the menu -->
+      <li class="nav-cta-item"><a href="https://forms.google.com/your-form" class="nav-cta" target="_blank">Book a Consultation</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero (particle background) -->
+  <section class="hero" style="min-height: 50vh;">
+    <canvas id="three-canvas"></canvas>
+    <div class="hero-content animate">
+      <h1>Our Services</h1>
+      <p>Choose the perfect plan for your business – no hidden costs, just pure value.</p>
+    </div>
+  </section>
+
+  <!-- Plan Cards -->
+  <section class="container" style="padding: 60px 0;">
+    <h2 class="section-title animate">Plans Designed for Your Growth</h2>
+    <div class="plan-cards">
+      <div class="plan-card glass-card animate" id="starter">
+        <i class='bx bx-rocket'></i>
+        <h3>Pixel-Starter</h3>
+        <ul class="feature-list">
+          <li><i class='bx bx-check-circle'></i> 5 Pages Website</li>
+          <li><i class='bx bx-check-circle'></i> Mobile Responsive</li>
+          <li><i class='bx bx-check-circle'></i> Basic SEO Setup</li>
+          <li><i class='bx bx-check-circle'></i> Contact Form</li>
+          <li><i class='bx bx-check-circle'></i> 1 Month Support</li>
+        </ul>
+        <a href="https://forms.google.com/your-form" class="btn-primary" target="_blank">Book Consultation</a>
+      </div>
+      <div class="plan-card glass-card animate" id="standard">
+        <i class='bx bx-briefcase'></i>
+        <h3>Pixel-Standard</h3>
+        <ul class="feature-list">
+          <li><i class='bx bx-check-circle'></i> 10 Pages Website</li>
+          <li><i class='bx bx-check-circle'></i> Advanced SEO</li>
+          <li><i class='bx bx-check-circle'></i> CMS Integration</li>
+          <li><i class='bx bx-check-circle'></i> Social Media Integration</li>
+          <li><i class='bx bx-check-circle'></i> 3 Months Support</li>
+        </ul>
+        <a href="https://forms.google.com/your-form" class="btn-primary" target="_blank">Book Consultation</a>
+      </div>
+      <div class="plan-card glass-card animate" id="premium">
+        <i class='bx bx-crown'></i>
+        <h3>Pixel-Premium</h3>
+        <ul class="feature-list">
+          <li><i class='bx bx-check-circle'></i> Custom Design</li>
+          <li><i class='bx bx-check-circle'></i> E‑commerce Ready</li>
+          <li><i class='bx bx-check-circle'></i> Advanced Analytics</li>
+          <li><i class='bx bx-check-circle'></i> Priority Support</li>
+          <li><i class='bx bx-check-circle'></i> 6 Months Support</li>
+        </ul>
+        <a href="https://forms.google.com/your-form" class="btn-primary" target="_blank">Book Consultation</a>
+      </div>
+      <div class="plan-card glass-card animate" id="apex">
+        <i class='bx bx-star'></i>
+        <h3>Pixel-Apex</h3>
+        <ul class="feature-list">
+          <li><i class='bx bx-check-circle'></i> Full Custom Development</li>
+          <li><i class='bx bx-check-circle'></i> Custom Features/Integrations</li>
+          <li><i class='bx bx-check-circle'></i> Dedicated Account Manager</li>
+          <li><i class='bx bx-check-circle'></i> 24/7 Priority Support</li>
+          <li><i class='bx bx-check-circle'></i> 12 Months Support</li>
+        </ul>
+        <a href="https://forms.google.com/your-form" class="btn-primary" target="_blank">Book Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="container" style="padding: 60px 0;">
+    <h2 class="section-title animate">Compare Plans</h2>
+    <div class="table-responsive">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Features</th>
+            <th>Starter</th>
+            <th>Standard</th>
+            <th>Premium</th>
+            <th>Apex</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pages</td><td>5</td><td>10</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Mobile Optimized</td><td><span class="feature-yes">✓</span></td><td><span class="feature-yes">✓</span></td><td><span class="feature-yes">✓</span></td><td><span class="feature-yes">✓</span></td></tr>
+          <tr><td>SEO Setup</td><td>Basic</td><td>Advanced</td><td>Advanced</td><td>Enterprise</td></tr>
+          <tr><td>CMS Included</td><td><span class="feature-no">✗</span></td><td><span class="feature-yes">✓</span></td><td><span class="feature-yes">✓</span></td><td><span class="feature-yes">✓</span></td></tr>
+          <tr><td>E‑commerce</td><td><span class="feature-no">✗</span></td><td><span class="feature-no">✗</span></td><td><span class="feature-yes">✓</span></td><td><span class="feature-yes">✓</span></td></tr>
+          <tr><td>Custom Features</td><td><span class="feature-no">✗</span></td><td><span class="feature-no">✗</span></td><td>Limited</td><td>Unlimited</td></tr>
+          <tr><td>Support Duration</td><td>1 month</td><td>3 months</td><td>6 months</td><td>12 months</td></tr>
+          <tr><td>Dedicated Manager</td><td><span class="feature-no">✗</span></td><td><span class="feature-no">✗</span></td><td><span class="feature-no">✗</span></td><td><span class="feature-yes">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="https://forms.google.com/your-form" class="btn-primary" target="_blank">Book a Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="PixelNestDev-Logo.png" alt="PixelNestDev" style="height: 40px;">
+          <p style="margin-top: 15px; color: #aaa;">Crafting digital experiences that drive results.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#starter">Pixel-Starter</a></li>
+            <li><a href="#standard">Pixel-Standard</a></li>
+            <li><a href="#premium">Pixel-Premium</a></li>
+            <li><a href="#apex">Pixel-Apex</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 PixelNestDev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Simplified particle background
+    function initParticles() {
+      const canvas = document.getElementById('three-canvas');
+      if (!canvas) return;
+      try {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const particlesGeo = new THREE.BufferGeometry();
+        const particlesCount = 600;
+        const posArray = new Float32Array(particlesCount * 3);
+        for(let i = 0; i < particlesCount * 3; i += 3) {
+          posArray[i] = (Math.random() - 0.5) * 50;
+          posArray[i+1] = (Math.random() - 0.5) * 50;
+          posArray[i+2] = (Math.random() - 0.5) * 50;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ color: 0x2dd4bf, size: 0.1, transparent: true, opacity: 0.3 });
+        const particles = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particles);
+
+        camera.position.z = 30;
+        function animate() {
+          requestAnimationFrame(animate);
+          particles.rotation.y += 0.0002;
+          particles.rotation.x += 0.0001;
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+      } catch (e) {}
+    }
+    initParticles();
+  </script>
+</body>
+</html>

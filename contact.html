@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – PixelNestDev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar (without CTA button) -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="PixelNestDev-Logo.png" alt="PixelNestDev" class="logo-img">
+        <span class="logo-text">PixelNestDev</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="services.html">Services <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="services.html#starter">Pixel-Starter</a></li>
+          <li><a href="services.html#standard">Pixel-Standard</a></li>
+          <li><a href="services.html#premium">Pixel-Premium</a></li>
+          <li><a href="services.html#apex">Pixel-Apex</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="resources.html">Resources <i class='bx bx-chevron-down'></i></a>
+        <ul class="dropdown-content">
+          <li><a href="resources.html#insights">Insight Articles</a></li>
+          <li><a href="resources.html#blogs">Blogs</a></li>
+          <li><a href="resources.html#case-studies">Case Studies</a></li>
+          <li><a href="resources.html#tutorials">Tutorials</a></li>
+          <li><a href="resources.html#tools">Tools</a></li>
+        </ul>
+      </li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <!-- No CTA button on contact page -->
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 50vh;">
+    <canvas id="three-canvas"></canvas>
+    <div class="hero-content animate">
+      <h1>Get in Touch</h1>
+      <p>We'd love to hear about your project.</p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="container" style="padding: 60px 0;">
+    <div class="contact-grid">
+      <!-- Form -->
+      <div class="contact-form glass-card animate">
+        <h3 style="margin-bottom: 30px; color: #2dd4bf;">Send us a message</h3>
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="text" placeholder="Company / Business">
+          <input type="text" placeholder="Subject">
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+          <p id="form-message" style="margin-top: 15px;"></p>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info animate">
+        <div class="glass-card">
+          <h3 style="margin-bottom: 30px; color: #2dd4bf;">Contact Information</h3>
+          <div class="contact-info-item">
+            <i class='bx bx-envelope'></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:hello@ pixelnestdev.com">hello@pixelnestdev.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class='bx bx-phone'></i>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+1234567890">+1 234 567 890</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class='bx bxl-whatsapp'></i>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/1234567890" target="_blank">Chat with us</a>
+            </div>
+          </div>
+          <div class="social-links" style="margin-top: 30px; justify-content: center;">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="PixelNestDev-Logo.png" alt="PixelNestDev" style="height: 40px;">
+          <p style="margin-top: 15px; color: #aaa;">Crafting digital experiences that drive results.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#starter">Pixel-Starter</a></li>
+            <li><a href="#standard">Pixel-Standard</a></li>
+            <li><a href="#premium">Pixel-Premium</a></li>
+            <li><a href="#apex">Pixel-Apex</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 PixelNestDev. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Simplified particle background
+    function initParticles() {
+      const canvas = document.getElementById('three-canvas');
+      if (!canvas) return;
+      try {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const particlesGeo = new THREE.BufferGeometry();
+        const particlesCount = 600;
+        const posArray = new Float32Array(particlesCount * 3);
+        for(let i = 0; i < particlesCount * 3; i += 3) {
+          posArray[i] = (Math.random() - 0.5) * 50;
+          posArray[i+1] = (Math.random() - 0.5) * 50;
+          posArray[i+2] = (Math.random() - 0.5) * 50;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ color: 0x2dd4bf, size: 0.1, transparent: true, opacity: 0.3 });
+        const particles = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particles);
+
+        camera.position.z = 30;
+        function animate() {
+          requestAnimationFrame(animate);
+          particles.rotation.y += 0.0002;
+          particles.rotation.x += 0.0001;
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+      } catch (e) {}
+    }
+    initParticles();
+  </script>
+</body>
+</html>
