@@ -79,7 +79,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 20px;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -127,7 +127,7 @@ nav {
 
 /* Adjust navbar padding to accommodate taller logo */
 nav {
-  padding: 10px 40px;     /* Slightly reduced vertical padding */
+  padding: 12px 40px;     /* Slightly reduced vertical padding */
 }
 
 /* On smaller screens, reduce logo height */
@@ -883,7 +883,7 @@ footer {
 .nav-cta {
   background: #2dd4bf;
   color: #0a0f1a !important;
-  padding: 8px 20px;
+  padding: 15px 20px;
   border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s;
@@ -893,7 +893,7 @@ footer {
   background: transparent;
   color: #2dd4bf !important;
   border: 2px solid #2dd4bf;
-  padding: 6px 18px;
+  padding: 12px 18px;
 }
 
 .nav-cta::after {
