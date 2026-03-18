@@ -7,14 +7,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="style.css">
-  <!-- Favicon – correct relative paths (files in same folder) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="PixelNestDev-Favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="PixelNestDev-Favicon16x16.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="PixelNestDev-Favicon.png">
+  <style>
+    /* Additional styles for filter buttons and badges */
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 40px 0 30px;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 2px solid #2dd4bf;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #2dd4bf;
+      color: #0a0f1a;
+    }
+    .category-badge {
+      display: inline-block;
+      background: rgba(45,212,191,0.2);
+      color: #2dd4bf;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .portfolio-item {
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .portfolio-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .portfolio-item.hide {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (unchanged) -->
   <nav>
     <div class="logo">
       <a href="index.html">
@@ -46,7 +92,6 @@
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <!-- CTA button inside the menu -->
       <li class="nav-cta-item"><a href="https://forms.google.com/your-form" class="nav-cta" target="_blank">Book a Consultation</a></li>
     </ul>
     <div class="hamburger">
@@ -55,70 +100,140 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero" style="min-height: 50vh;">
+  <section class="hero" style="min-height: 40vh;">
     <canvas id="three-canvas"></canvas>
     <div class="hero-content animate">
       <h1>Our Work</h1>
-      <p>Take a look at some of our recent projects.</p>
+      <p>Real projects, real results – explore our portfolio.</p>
     </div>
   </section>
+
+  <!-- Filter Buttons -->
+  <div class="container">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="education">Education</button>
+      <button class="filter-btn" data-filter="retail">Retail / E‑commerce</button>
+      <button class="filter-btn" data-filter="hospitality">Hospitality</button>
+      <button class="filter-btn" data-filter="nonprofit">Non‑profit / Community</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+    </div>
+  </div>
 
   <!-- Portfolio Grid -->
-  <section class="container" style="padding: 60px 0;">
-    <div class="portfolio-grid">
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600" alt="Project 1">
-        <div class="project-info">
-          <h3>Fintech Dashboard</h3>
-          <p>Interactive platform for financial analytics.</p>
-        </div>
+  <section class="container" style="padding: 20px 0 60px;">
+    <div class="portfolio-grid" id="portfolio-grid">
+      <!-- Project 1: Penmiah Jobs and Training -->
+      <div class="portfolio-item glass-card animate" data-category="education">
+        <a href="case-study-penmiah.html">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600" alt="Penmiah Jobs and Training">
+          <div class="project-info">
+            <h3>Penmiah Jobs and Training</h3>
+            <p>Official website for job placement and training programs.</p>
+            <span class="category-badge">Education</span>
+          </div>
+        </a>
       </div>
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=600" alt="Project 2">
-        <div class="project-info">
-          <h3>Eco Store</h3>
-          <p>Sustainable e‑commerce website.</p>
-        </div>
+
+      <!-- Project 2: Tush Mart Splendour -->
+      <div class="portfolio-item glass-card animate" data-category="retail">
+        <a href="case-study-tushmart.html">
+          <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600" alt="Tush Mart Splendour">
+          <div class="project-info">
+            <h3>Tush Mart Splendour</h3>
+            <p>E‑commerce website for a mart in Abuja.</p>
+            <span class="category-badge">Retail / E‑commerce</span>
+          </div>
+        </a>
       </div>
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="Project 3">
-        <div class="project-info">
-          <h3>Creative Agency</h3>
-          <p>Portfolio with custom CMS.</p>
-        </div>
+
+      <!-- Project 3: Harzock Hotel -->
+      <div class="portfolio-item glass-card animate" data-category="hospitality">
+        <a href="case-study-harzock.html">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" alt="Harzock Hotel">
+          <div class="project-info">
+            <h3>Harzock Hotel</h3>
+            <p>Official website for Harzock Hotel – booking and info.</p>
+            <span class="category-badge">Hospitality</span>
+          </div>
+        </a>
       </div>
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600" alt="Project 4">
-        <div class="project-info">
-          <h3>Real Estate Platform</h3>
-          <p>Property listing with search filters.</p>
-        </div>
+
+      <!-- Project 4: Peakminds Schools -->
+      <div class="portfolio-item glass-card animate" data-category="education">
+        <a href="case-study-peakminds.html">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600" alt="Peakminds Schools">
+          <div class="project-info">
+            <h3>Peakminds Schools</h3>
+            <p>Official website for Peakminds Schools.</p>
+            <span class="category-badge">Education</span>
+          </div>
+        </a>
       </div>
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Project 5">
-        <div class="project-info">
-          <h3>Restaurant Booking</h3>
-          <p>Online reservation system.</p>
-        </div>
+
+      <!-- Project 5: Jesus Tribe Attendance System -->
+      <div class="portfolio-item glass-card animate" data-category="nonprofit">
+        <a href="case-study-jt-attendance.html">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600" alt="Jesus Tribe Attendance System">
+          <div class="project-info">
+            <h3>Jesus Tribe Attendance System</h3>
+            <p>Database management for community attendance.</p>
+            <span class="category-badge">Non‑profit / Community</span>
+          </div>
+        </a>
       </div>
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600" alt="Project 6">
-        <div class="project-info">
-          <h3>Educational Portal</h3>
-          <p>LMS with video courses.</p>
-        </div>
+
+      <!-- Project 6: Men in My Life Foundation -->
+      <div class="portfolio-item glass-card animate" data-category="nonprofit">
+        <a href="case-study-meninmylife.html">
+          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600" alt="Men in My Life Foundation">
+          <div class="project-info">
+            <h3>Men in My Life Foundation</h3>
+            <p>NGO website raising awareness and support.</p>
+            <span class="category-badge">Non‑profit / Community</span>
+          </div>
+        </a>
       </div>
-      <div class="portfolio-item glass-card animate">
-        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600" alt="Project 7">
-        <div class="project-info">
-          <h3>Health & Wellness</h3>
-          <p>Appointment scheduling platform.</p>
-        </div>
+
+      <!-- Project 7: AI-OKO Fabrics -->
+      <div class="portfolio-item glass-card animate" data-category="retail">
+        <a href="case-study-aioko.html">
+          <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600" alt="AI-OKO Fabrics">
+          <div class="project-info">
+            <h3>AI-OKO Fabrics</h3>
+            <p>E‑commerce for African fabric brand.</p>
+            <span class="category-badge">Retail / E‑commerce</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 8: Jesus Tribe Abuja -->
+      <div class="portfolio-item glass-card animate" data-category="nonprofit">
+        <a href="case-study-jtabuja.html">
+          <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600" alt="Jesus Tribe Abuja">
+          <div class="project-info">
+            <h3>Jesus Tribe Abuja</h3>
+            <p>Community website for Covenant Nation Church.</p>
+            <span class="category-badge">Non‑profit / Community</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Project 9: The United Stand -->
+      <div class="portfolio-item glass-card animate" data-category="sports">
+        <a href="case-study-unitedstand.html">
+          <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600" alt="The United Stand">
+          <div class="project-info">
+            <h3>The United Stand</h3>
+            <p>Fan community demo for Manchester United supporters.</p>
+            <span class="category-badge">Sports</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (unchanged) -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -162,10 +277,11 @@
     </div>
   </footer>
 
+  <!-- Three.js particle background -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
   <script>
-    // Simplified particle background
+    // Particle background (same as before)
     function initParticles() {
       const canvas = document.getElementById('three-canvas');
       if (!canvas) return;
@@ -206,7 +322,28 @@
       } catch (e) {}
     }
     initParticles();
+
+    // Filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            item.classList.remove('hide');
+          } else {
+            item.classList.add('hide');
+          }
+        });
+      });
+    });
   </script>
 </body>
-
 </html>
