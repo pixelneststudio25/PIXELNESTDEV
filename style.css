@@ -390,12 +390,10 @@ nav {
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--accent);
-  display: block;
   font-size: 1.05em;
   letter-spacing: 0.01em;
   text-shadow: 0 0 30px rgba(34, 229, 242, 0.35);
 }
-
 .hero-subhead {
   font-size: 1.05rem;
   color: var(--text-muted);
