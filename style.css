@@ -162,6 +162,10 @@ img {
     transform: none;
     transition: none;
   }
+  .hero-headline .word {
+    transition: none;
+    transform: none;
+  }
 }
 
 /* Hero entrance (load-triggered, not scroll-triggered) */
@@ -378,21 +382,13 @@ nav {
 }
 
 .hero-text h1 {
-  font-size: 3.6rem;
-  font-weight: 500;
-  line-height: 1.08;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.15;
   margin-bottom: 24px;
   color: var(--text-primary);
   letter-spacing: -0.01em;
-}
-
-.hero-text h1 .accent-word {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 1.05em;
-  letter-spacing: 0.01em;
-  text-shadow: 0 0 30px rgba(34, 229, 242, 0.35);
 }
 .hero-subhead {
   font-size: 1.05rem;
@@ -478,16 +474,16 @@ nav {
     z-index: 2;
   }
   .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 400px) {
   .hero {
     padding: 120px 20px 60px;
   }
   .hero-text h1 {
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
   .eyebrow {
     padding-top: 70px;
@@ -497,6 +493,14 @@ nav {
   }
   .hero-metrics {
     gap: 28px;
+  }
+  .hero-cta {
+    flex-direction: column;
+  }
+  .btn-primary,
+  .hero-cta .btn-secondary {
+    width: 100%;
+    text-align: center;
   }
   .metric .metric-value {
     font-size: 1.35rem;
@@ -808,4 +812,32 @@ footer {
   .social-links {
     justify-content: center;
   }
+}
+.hero-headline .word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.hero-headline .word {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-headline.show .word {
+  transform: translateY(0);
+}
+
+.hero-headline.show .word:nth-child(1) { transition-delay: 0s; }
+.hero-headline.show .word-mask:nth-child(1) .word { transition-delay: 0.03s; }
+.hero-headline.show .word-mask:nth-child(2) .word { transition-delay: 0.09s; }
+.hero-headline.show .word-mask:nth-child(3) .word { transition-delay: 0.15s; }
+.hero-headline.show .word-mask:nth-child(4) .word { transition-delay: 0.25s; }
+.hero-headline.show .word-mask:nth-child(5) .word { transition-delay: 0.31s; }
+.hero-headline.show .word-mask:nth-child(6) .word { transition-delay: 0.37s; }
+
+.hero-headline.hero-animate {
+  opacity: 1;
+  transform: none;
 }
