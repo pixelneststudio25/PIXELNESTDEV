@@ -160,9 +160,21 @@ const prefersReducedMotion = window.matchMedia(
 
 /* ===================== Staggered hero entrance on load ===================== */
 window.addEventListener("DOMContentLoaded", () => {
-  const heroEls = document.querySelectorAll(".hero-animate");
-  heroEls.forEach((el, i) => {
-    setTimeout(() => el.classList.add("show"), prefersReducedMotion ? 0 : i * 150);
+  const headline = document.querySelector(".hero-headline");
+  const otherEls = document.querySelectorAll(".hero-animate:not(.hero-headline)");
+
+  if (prefersReducedMotion) {
+    if (headline) headline.classList.add("show");
+    otherEls.forEach((el) => el.classList.add("show"));
+    return;
+  }
+
+  const HEADLINE_DURATION_MS = 1070; // last word delay (0.37s) + its transition (0.7s)
+
+  if (headline) headline.classList.add("show");
+
+  otherEls.forEach((el, i) => {
+    setTimeout(() => el.classList.add("show"), HEADLINE_DURATION_MS + i * 150);
   });
 });
 
