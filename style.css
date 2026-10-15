@@ -841,3 +841,15 @@ footer {
   opacity: 1;
   transform: none;
 }
+
+.service-card .service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.service-card .service-link i { transition: transform 0.3s; }
+.service-card .service-link:hover i { transform: translate(3px, -3px); }
