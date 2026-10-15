@@ -1,0 +1,71 @@
+/* PixelNestDev | Questionnaire (uses variables from style.css) */
+.q-exit{font-size:.9rem;color:var(--text-muted);display:inline-flex;align-items:center;gap:6px;transition:color .3s}
+.q-exit:hover{color:var(--accent)}
+.q-wrap{max-width:1100px;margin:0 auto;padding:120px 24px 80px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:start}
+.q-main{background:var(--bg-elevated);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:20px;padding:36px;min-height:520px}
+.q-progress{display:flex;align-items:center;gap:16px;margin-bottom:36px}
+.q-bar{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.q-bar span{display:block;height:100%;width:0;background:var(--accent);box-shadow:0 0 12px var(--accent);transition:width .5s ease}
+.q-progress small{color:var(--text-muted);font-size:.78rem;white-space:nowrap}
+
+.q-stage h2{font-family:var(--font-display);font-size:1.5rem;line-height:1.3;margin-bottom:10px;letter-spacing:.01em}
+.hint{color:var(--text-muted);font-size:.92rem;margin-bottom:24px;max-width:560px}
+.q-stage.in{animation:qin .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes qin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:22px 0}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;font:inherit;font-weight:500;font-size:.95rem;color:var(--text-primary);background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;transition:border-color .25s,background .25s,box-shadow .25s,transform .2s}
+.opt i{font-size:1.5rem;color:var(--accent)}
+.opt:hover{border-color:rgba(34,229,242,.55);transform:translateY(-2px)}
+.opt.on{border-color:var(--accent);background:var(--accent-dim);box-shadow:0 0 0 1px var(--accent),0 8px 28px rgba(34,229,242,.18)}
+.opt.on::after{content:'\eb7b';font-family:boxicons;margin-left:auto;color:var(--accent);animation:pop .3s ease}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+.q-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.q-field label{font-size:.85rem;color:var(--text-muted)}
+.q-field input,.q-field textarea,.q-field select{font:inherit;color:var(--text-primary);background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px 16px;outline:none;transition:border-color .25s,box-shadow .25s}
+.q-field textarea{min-height:110px;resize:vertical}
+.q-field select option{background:#0a0a0a}
+.q-field input:focus,.q-field textarea:focus,.q-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+.q-field.bad input{border-color:#ff6b6b}
+.q-err{color:#ff8a8a;font-size:.85rem;min-height:1.2em;margin-bottom:8px}
+.q-check{display:flex;gap:10px;align-items:center;margin:8px 0 16px;font-size:.92rem;cursor:pointer}
+.q-check input{accent-color:var(--accent);width:18px;height:18px}
+.q-hp{position:absolute;left:-9999px;opacity:0}
+.q-fine{color:var(--text-muted);font-size:.8rem;margin-top:14px}
+
+.q-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}
+.q-back{background:none;border:0;color:var(--text-muted);font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.q-back:hover{color:var(--accent)}
+.q-nav .btn-primary{cursor:pointer;font-family:inherit}
+.q-nav .btn-primary:disabled{opacity:.5;cursor:wait}
+.opt:focus-visible,.btn-primary:focus-visible,.q-back:focus-visible,.brief-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Brief panel */
+.brief{position:sticky;top:96px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:20px;padding:24px;backdrop-filter:blur(10px)}
+.brief h3{font-family:var(--font-display);font-size:1rem;margin-bottom:14px}
+.brief ul{list-style:none;display:grid;gap:12px}
+.brief li{font-size:.85rem;animation:qin .35s ease}
+.brief li b{display:block;color:var(--text-muted);font-weight:500;font-size:.75rem}
+.brief .hint{font-size:.85rem;margin:0}
+.brief-toggle{display:none}
+
+/* Success */
+.q-done{text-align:center;padding:10px 0}
+.q-tick{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:var(--accent);box-shadow:0 0 40px rgba(34,229,242,.3);animation:pop .5s cubic-bezier(.2,.8,.2,1)}
+.q-done .hint{margin-left:auto;margin-right:auto}
+.q-steps{display:grid;gap:14px;text-align:left;max-width:440px;margin:26px auto;list-style:none}
+.q-steps li{display:flex;gap:14px;align-items:flex-start;font-size:.95rem}
+.q-steps i{font-size:1.3rem;color:var(--accent);margin-top:2px}
+.q-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+
+@media (max-width:900px){
+  .q-wrap{grid-template-columns:1fr;padding:100px 16px 60px}
+  .q-main{padding:24px 20px}
+  .brief{position:static;order:-1;padding:0;overflow:hidden}
+  .brief-toggle{display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;color:var(--text-primary);font:inherit;font-weight:600;padding:14px 18px;cursor:pointer}
+  .brief-body{display:none;padding:0 18px 18px}
+  .brief.open .brief-body{display:block}
+  .brief-body h3{display:none}
+}
+@media (prefers-reduced-motion:reduce){.q-stage.in,.brief li,.q-tick,.opt.on::after{animation:none}.q-bar span{transition:none}}
