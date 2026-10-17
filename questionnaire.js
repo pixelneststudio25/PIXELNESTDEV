@@ -2,8 +2,8 @@
 (() => {
   /* ---------- Config: fill these in ---------- */
   const CFG = {
-    key: "3f93713f-799b-47fd-bc98-67d59d38b786", // free key from web3forms.com, sent to your inbox
-    wa: "2348125584239",              // WhatsApp number, digits only, with country code
+    key: "YOUR_WEB3FORMS_ACCESS_KEY", // free key from web3forms.com, sent to your inbox
+    wa: "234XXXXXXXXXX",              // WhatsApp number, digits only, with country code
     cal: ""                           // optional Cal.com link, e.g. https://cal.com/yourname/intro
   };
 
@@ -48,6 +48,7 @@
     { id: "start", t: "s", q: "When can you start?", lab: "Start", o: ["Right away", "Within a month", "Just exploring"] },
     { id: "supp", t: "s", q: "Do you want support after launch?", lab: "Support", o: ["Monthly maintenance", "Occasional updates", "No", NS] },
     { id: "contact", t: "contact", q: "How can we reach you?", lab: "Contact", sub: "We reply within 2 hours." },
+    { id: "about", t: "about", q: "A little about you", lab: "About", sub: "Optional, but it helps us prepare." },
     { id: "final", t: "final", q: "Anything else we should know?", lab: "Notes" }
   ];
 
@@ -68,7 +69,7 @@
   const stage = $("#stage");
 
   function brief() {
-    const rows = S.filter((s) => A[s.id] != null && A[s.id] !== "" && (s.id === "type" || !s.w || s.w(A)) && s.t !== "contact" && s.t !== "final");
+    const rows = S.filter((s) => A[s.id] != null && A[s.id] !== "" && (s.id === "type" || !s.w || s.w(A)) && !["contact", "about", "final"].includes(s.t));
     $("#briefList").innerHTML = rows.map((s) => `<li><b>${esc(s.lab)}</b>${esc([].concat(A[s.id]).join(", "))}</li>`).join("");
     $("#briefEmpty").style.display = rows.length ? "none" : "block";
   }
@@ -80,31 +81,38 @@
     $("#bar").style.width = (i / V.length) * 100 + "%";
     const mins = Math.round((V.length - i) * 0.2);
     $("#left").textContent = mins < 1 ? "Almost done" : `About ${mins} min left`;
-    let h = `<h2>${esc(s.q)}</h2>${s.sub ? `<p class="hint">${esc(s.sub)}</p>` : ""}`;
+    const head = `<h2>${esc(s.q)}</h2>${s.sub ? `<p class="hint">${esc(s.sub)}</p>` : ""}`;
     const back = i > 0 ? `<button type="button" class="q-back" data-back><i class='bx bx-arrow-back'></i> Back</button>` : "<span></span>";
     const cont = (label = "Continue") => `<div class="q-err" id="err"></div><div class="q-nav">${back}<button type="button" class="btn-primary" data-next>${label}</button></div>`;
+    let b = "", foot = "";
 
     if (s.t === "s" || s.t === "c") {
       const cur = [].concat(A[s.id] || []);
-      h += `<div class="opts">${opts(s).map((o) => { const l = ov(o), ic = Array.isArray(o) ? o[2] : ""; return `<button type="button" class="opt${cur.includes(l) ? " on" : ""}" data-v="${esc(l)}">${ic ? `<i class='bx ${ic}'></i>` : ""}<span>${esc(l)}</span></button>`; }).join("")}</div>`;
-      h += s.t === "s" ? `<div class="q-nav">${back}<span></span></div>` : cont(s.req ? "Continue" : cur.length ? "Continue" : "Skip");
+      b = `<div class="opts">${opts(s).map((o) => { const l = ov(o), ic = Array.isArray(o) ? o[2] : ""; return `<button type="button" class="opt${cur.includes(l) ? " on" : ""}" data-v="${esc(l)}">${ic ? `<i class='bx ${ic}'></i>` : ""}<span>${esc(l)}</span></button>`; }).join("")}</div>`;
+      foot = s.t === "s" ? `<div class="q-nav">${back}<span></span></div>` : cont(s.req ? "Continue" : cur.length ? "Continue" : "Skip");
     } else if (s.t === "x") {
-      h += `<div class="q-field"><input id="f_x" type="url" inputmode="url" placeholder="${esc(s.ph || "")}" value="${esc(A[s.id] || "")}"></div>${cont(A[s.id] ? "Continue" : "Skip")}`;
+      b = `<div class="q-field"><input id="f_x" type="url" inputmode="url" placeholder="${esc(s.ph || "")}" value="${esc(A[s.id] || "")}"></div>`;
+      foot = cont(A[s.id] ? "Continue" : "Skip");
     } else if (s.t === "contact") {
-      const chips = ["WhatsApp", "Email", "Phone call"].map((m) => `<button type="button" class="opt${A.method === m ? " on" : ""}" data-m="${m}"><span>${m}</span></button>`).join("");
-      h += `<div class="q-field"><label for="f_name">Your name</label><input id="f_name" autocomplete="name" value="${esc(A.name || "")}"></div>
+      b = `<div class="q-grid"><div class="q-field"><label for="f_name">Your name</label><input id="f_name" autocomplete="name" value="${esc(A.name || "")}"></div>
       <div class="q-field"><label for="f_email">Email</label><input id="f_email" type="email" autocomplete="email" value="${esc(A.email || "")}"></div>
-      <div class="q-field"><label for="f_phone">WhatsApp or phone number</label><input id="f_phone" type="tel" autocomplete="tel" value="${esc(A.phone || "")}"></div>
-      <div class="q-field"><label for="f_co">Company (optional)</label><input id="f_co" autocomplete="organization" value="${esc(A.company || "")}"></div>
-      <div class="q-field"><label>Best way to reach you</label><div class="opts">${chips}</div></div>
-      <div class="q-field"><label for="f_heard">How did you find us?</label><select id="f_heard">${["", "Instagram", "LinkedIn", "GitHub", "Referral", "Google", "Other"].map((x) => `<option value="${x}"${A.heard === x ? " selected" : ""}>${x || "Choose one"}</option>`).join("")}</select></div>${cont()}`;
+      <div class="q-field"><label for="f_phone">WhatsApp or phone number</label><input id="f_phone" type="tel" autocomplete="tel" value="${esc(A.phone || "")}"></div></div>`;
+      foot = cont();
+    } else if (s.t === "about") {
+      const chips = ["WhatsApp", "Email", "Phone call"].map((m) => `<button type="button" class="opt${A.method === m ? " on" : ""}" data-m="${m}"><span>${m}</span></button>`).join("");
+      b = `<div class="q-grid"><div class="q-field"><label for="f_co">Company (optional)</label><input id="f_co" autocomplete="organization" value="${esc(A.company || "")}"></div>
+      <div class="q-field"><label for="f_heard">How did you find us?</label><select id="f_heard">${["", "Instagram", "LinkedIn", "GitHub", "Referral", "Google", "Other"].map((x) => `<option value="${x}"${A.heard === x ? " selected" : ""}>${x || "Choose one"}</option>`).join("")}</select></div></div>
+      <div class="q-field"><label>Best way to reach you</label><div class="opts">${chips}</div></div>`;
+      foot = cont();
     } else {
-      h += `<div class="q-field"><textarea id="f_note" placeholder="Optional">${esc(A.note || "")}</textarea></div>
+      b = `<div class="q-field"><textarea id="f_note" placeholder="Optional">${esc(A.note || "")}</textarea></div>
       <label class="q-check"><input type="checkbox" id="f_call"${A.call ? " checked" : ""}> I'd like a quick call to go over this</label>
       <div id="timeBox" ${A.call ? "" : "hidden"}><div class="opts">${["Morning", "Afternoon", "Evening"].map((m) => `<button type="button" class="opt${A.ctime === m ? " on" : ""}" data-t="${m}"><span>${m}</span></button>`).join("")}</div></div>
       <input type="checkbox" name="botcheck" id="f_hp" class="q-hp" tabindex="-1" autocomplete="off">
-      <p class="q-fine">We only use this to respond to your project. We never share it.</p>${cont("Send my project")}`;
+      <p class="q-fine">We only use this to respond to your project. We never share it.</p>`;
+      foot = cont("Send my project");
     }
+    const h = head + `<div class="q-body">${b}</div>` + foot;
     stage.innerHTML = h;
     if (anim) { stage.classList.remove("in"); void stage.offsetWidth; stage.classList.add("in"); }
     brief(); save(); track("step", { id: s.id });
@@ -115,7 +123,8 @@
 
   function collect(s) {
     if (s.t === "x") { A[s.id] = ($("#f_x").value || "").trim(); }
-    if (s.t === "contact") { A.name = $("#f_name").value.trim(); A.email = $("#f_email").value.trim(); A.phone = $("#f_phone").value.trim(); A.company = $("#f_co").value.trim(); A.heard = $("#f_heard").value; }
+    if (s.t === "contact") { A.name = $("#f_name").value.trim(); A.email = $("#f_email").value.trim(); A.phone = $("#f_phone").value.trim(); }
+    if (s.t === "about") { A.company = $("#f_co").value.trim(); A.heard = $("#f_heard").value; }
     if (s.t === "final") { A.note = $("#f_note").value.trim(); A.call = $("#f_call").checked; }
   }
 
@@ -158,7 +167,7 @@
   $("#briefToggle").addEventListener("click", () => { const b = $("#brief"); const on = b.classList.toggle("open"); $("#briefToggle").setAttribute("aria-expanded", on); });
 
   function summary() {
-    const V = vis().filter((s) => s.t !== "contact" && s.t !== "final");
+    const V = vis().filter((s) => !["contact", "about", "final"].includes(s.t));
     const lines = V.filter((s) => A[s.id] != null && A[s.id] !== "").map((s) => `${s.lab}: ${[].concat(A[s.id]).join(", ")}`);
     const fit = [
       `Budget ${A.budget && A.budget !== NS ? "✅" : "⚠️"}`,
