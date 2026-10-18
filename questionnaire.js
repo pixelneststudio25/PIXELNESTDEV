@@ -2,8 +2,8 @@
 (() => {
   /* ---------- Config: fill these in ---------- */
   const CFG = {
-    key: "YOUR_WEB3FORMS_ACCESS_KEY", // free key from web3forms.com, sent to your inbox
-    wa: "234XXXXXXXXXX",              // WhatsApp number, digits only, with country code
+    key: "3f93713f-799b-47fd-bc98-67d59d38b786", // free key from web3forms.com, sent to your inbox
+    wa: "2348125584239",              // WhatsApp number, digits only, with country code
     cal: ""                           // optional Cal.com link, e.g. https://cal.com/yourname/intro
   };
 
