@@ -159,3 +159,7 @@ html{color-scheme:dark}
   .q-page .opts.mix .opt{flex:none;min-height:0;max-height:none;padding:0 12px;line-height:1.2}
   .q-page .opts.mix .opt.w{grid-column:1/-1}
 }
+
+@media (max-width: 480px) {
+  .q-page .opt { font-size: 0.8rem; }
+}
