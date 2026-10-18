@@ -55,6 +55,12 @@
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const ov = (o) => (Array.isArray(o) ? o[1] : o);
+  // Mobile layout helper: short options pair up two per row, long ones (or an odd one out) take a full row
+  const wideFlags = (O) => {
+    const f = O.map((o) => ov(o).length > 16); let k = 0;
+    while (k < O.length) { if (f[k]) { k++; continue; } let e = k; while (e < O.length && !f[e]) e++; if ((e - k) % 2) f[e - 1] = true; k = e; }
+    return f;
+  };
   const track = (n, p) => { try { window.plausible && window.plausible(n, { props: p }); } catch (e) {} };
 
   let A = {}, i = 0, sending = false;
@@ -74,6 +80,15 @@
     $("#briefEmpty").style.display = rows.length ? "none" : "block";
   }
 
+  // Show a "More options" cue whenever options are hidden below the fold
+  function chk() {
+    const qb = stage.querySelector(".q-body"), m = stage.querySelector(".q-more");
+    if (!qb || !m) return;
+    m.hidden = !(qb.scrollHeight - qb.clientHeight > 4 && qb.scrollTop + qb.clientHeight < qb.scrollHeight - 4);
+  }
+  stage.addEventListener("scroll", chk, true);
+  window.addEventListener("resize", chk);
+
   function render(anim = true) {
     const V = vis();
     i = Math.max(0, Math.min(i, V.length - 1));
@@ -88,7 +103,8 @@
 
     if (s.t === "s" || s.t === "c") {
       const cur = [].concat(A[s.id] || []);
-      b = `<div class="opts">${opts(s).map((o) => { const l = ov(o), ic = Array.isArray(o) ? o[2] : ""; return `<button type="button" class="opt${cur.includes(l) ? " on" : ""}" data-v="${esc(l)}">${ic ? `<i class='bx ${ic}'></i>` : ""}<span>${esc(l)}</span></button>`; }).join("")}</div>`;
+      const O = opts(s), mix = O.length >= 5, W = wideFlags(O);
+      b = `<div class="opts${mix ? " mix" : ""}">${O.map((o, k) => { const l = ov(o), ic = Array.isArray(o) ? o[2] : ""; return `<button type="button" class="opt${cur.includes(l) ? " on" : ""}${mix && W[k] ? " w" : ""}" data-v="${esc(l)}">${ic ? `<i class='bx ${ic}'></i>` : ""}<span>${esc(l)}</span></button>`; }).join("")}</div>`;
       foot = s.t === "s" ? `<div class="q-nav">${back}<span></span></div>` : cont(s.req ? "Continue" : cur.length ? "Continue" : "Skip");
     } else if (s.t === "x") {
       b = `<div class="q-field"><input id="f_x" type="url" inputmode="url" placeholder="${esc(s.ph || "")}" value="${esc(A[s.id] || "")}"></div>`;
@@ -112,10 +128,10 @@
       <p class="q-fine">We only use this to respond to your project. We never share it.</p>`;
       foot = cont("Send my project");
     }
-    const h = head + `<div class="q-body">${b}</div>` + foot;
+    const h = head + `<div class="q-bodywrap"><div class="q-body">${b}</div><div class="q-more" hidden><i class='bx bx-chevron-down'></i> More options</div></div>` + foot;
     stage.innerHTML = h;
     if (anim) { stage.classList.remove("in"); void stage.offsetWidth; stage.classList.add("in"); }
-    brief(); save(); track("step", { id: s.id });
+    brief(); save(); track("step", { id: s.id }); requestAnimationFrame(chk);
   }
 
   const go = (d) => { i += d; render(); window.scrollTo({ top: 0, behavior: "smooth" }); };
@@ -164,7 +180,11 @@
     }
   });
   stage.addEventListener("change", (e) => { if (e.target.id === "f_call") { $("#timeBox").hidden = !e.target.checked; A.call = e.target.checked; save(); } });
-  $("#briefToggle").addEventListener("click", () => { const b = $("#brief"); const on = b.classList.toggle("open"); $("#briefToggle").setAttribute("aria-expanded", on); });
+  const bf = $("#brief"), setBrief = (on) => { bf.classList.toggle("open", on); $("#briefChip").setAttribute("aria-expanded", on); };
+  $("#briefChip").addEventListener("click", () => setBrief(true));
+  $("#briefClose").addEventListener("click", () => setBrief(false));
+  bf.addEventListener("click", (e) => { if (e.target === bf) setBrief(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setBrief(false); });
 
   function summary() {
     const V = vis().filter((s) => !["contact", "about", "final"].includes(s.t));

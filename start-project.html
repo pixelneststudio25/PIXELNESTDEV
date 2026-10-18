@@ -23,19 +23,18 @@
 
   <main class="q-wrap">
     <section class="q-main" aria-live="polite">
-      <div class="q-progress" id="progress" aria-hidden="true">
-        <div class="q-bar"><span id="bar"></span></div>
+      <div class="q-progress" id="progress">
+        <div class="q-bar" aria-hidden="true"><span id="bar"></span></div>
         <small id="left"></small>
+        <button type="button" class="brief-chip" id="briefChip" aria-expanded="false"><i class='bx bx-list-check'></i><span>Brief</span></button>
       </div>
       <div class="q-stage" id="stage"></div>
       <noscript><p class="hint">This form needs JavaScript. Email us at <a href="mailto:daniel@pixelnestdev.com">daniel@pixelnestdev.com</a> instead.</p></noscript>
     </section>
 
     <aside class="brief" id="brief">
-      <button type="button" class="brief-toggle" id="briefToggle" aria-expanded="false">
-        <i class='bx bx-list-check'></i> Your project brief
-      </button>
       <div class="brief-body">
+        <button type="button" class="brief-close" id="briefClose" aria-label="Close brief"><i class='bx bx-x'></i></button>
         <h3>Your project brief</h3>
         <ul id="briefList"></ul>
         <p class="hint" id="briefEmpty">Your answers build up here as you go.</p>
