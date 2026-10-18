@@ -195,3 +195,5 @@ html{color-scheme:dark}
   background: #0b1012;
   color: var(--text-primary);
 }
+
+.q-more { display: none !important; }
